@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PocketArena — Pokémon Battle Simulator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="app">
+    <header>
+      <h1>PocketArena</h1>
+      <p class="tagline">A lightweight web Pokémon battle simulator — mobile, desktop & controller friendly.</p>
+    </header>
+
+    <section class="battle-area" role="application" aria-label="Battle area">
+      <div class="opponent" id="opponent" tabindex="0" aria-live="polite">
+        <div class="sprite">🛡️</div>
+        <div class="info">
+          <div class="name" id="op-name">Blastoise</div>
+          <div class="hp">HP: <span id="op-hp">100</span>/<span id="op-maxhp">100</span></div>
+          <progress id="op-hpbar" value="100" max="100"></progress>
+        </div>
+      </div>
+
+      <div class="log" id="log" aria-live="polite" aria-atomic="false"></div>
+
+      <div class="player" id="player" tabindex="0" aria-live="polite">
+        <div class="sprite">🔥</div>
+        <div class="info">
+          <div class="name" id="pl-name">Charizard</div>
+          <div class="hp">HP: <span id="pl-hp">100</span>/<span id="pl-maxhp">100</span></div>
+          <progress id="pl-hpbar" value="100" max="100"></progress>
+        </div>
+      </div>
+    </section>
+
+    <section class="controls" aria-label="Battle controls">
+      <div class="moves" id="moves" role="listbox" aria-label="Moves list">
+        <!-- move buttons injected by JS -->
+      </div>
+
+      <div class="actions">
+        <button id="btn-next" class="btn" aria-label="Next">Next</button>
+        <button id="btn-reset" class="btn" aria-label="Reset battle">Reset</button>
+      </div>
+
+      <div class="help" id="help">
+        <h3>Controls</h3>
+        <ul>
+          <li>Tap / Click a move (or use arrow keys + Enter)</li>
+          <li>Controller: D-pad to move, A to confirm, B to cancel</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      <small>Pokémon is a trademark of Nintendo/Game Freak/The Pokémon Company. This simulator is fan-made and educational.</small>
+    </footer>
+  </main>
+
+  <script src="app.js" type="module"></script>
+</body>
+</html>
