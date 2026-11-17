@@ -1,64 +1,16 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>PocketArena — Pokémon Battle Simulator</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <main id="app">
-    <header>
-      <h1>PocketArena</h1>
-      <p class="tagline">A lightweight web Pokémon battle simulator — mobile, desktop & controller friendly.</p>
-    </header>
-
-    <section class="battle-area" role="application" aria-label="Battle area">
-      <div class="opponent" id="opponent" tabindex="0" aria-live="polite">
-        <div class="sprite">🛡️</div>
-        <div class="info">
-          <div class="name" id="op-name">Blastoise</div>
-          <div class="hp">HP: <span id="op-hp">100</span>/<span id="op-maxhp">100</span></div>
-          <progress id="op-hpbar" value="100" max="100"></progress>
-        </div>
-      </div>
-
-      <div class="log" id="log" aria-live="polite" aria-atomic="false"></div>
-
-      <div class="player" id="player" tabindex="0" aria-live="polite">
-        <div class="sprite">🔥</div>
-        <div class="info">
-          <div class="name" id="pl-name">Charizard</div>
-          <div class="hp">HP: <span id="pl-hp">100</span>/<span id="pl-maxhp">100</span></div>
-          <progress id="pl-hpbar" value="100" max="100"></progress>
-        </div>
-      </div>
-    </section>
-
-    <section class="controls" aria-label="Battle controls">
-      <div class="moves" id="moves" role="listbox" aria-label="Moves list">
-        <!-- move buttons injected by JS -->
-      </div>
-
-      <div class="actions">
-        <button id="btn-next" class="btn" aria-label="Next">Next</button>
-        <button id="btn-reset" class="btn" aria-label="Reset battle">Reset</button>
-      </div>
-
-      <div class="help" id="help">
-        <h3>Controls</h3>
-        <ul>
-          <li>Tap / Click a move (or use arrow keys + Enter)</li>
-          <li>Controller: D-pad to move, A to confirm, B to cancel</li>
-        </ul>
-      </div>
-    </section>
-
-    <footer>
-      <small>Pokémon is a trademark of Nintendo/Game Freak/The Pokémon Company. This simulator is fan-made and educational.</small>
-    </footer>
-  </main>
-
-  <script src="app.js" type="module"></script>
-</body>
-</html>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#071021"><meta name="description" content="A lightweight browser-based Pokémon battle prototype.">
+<title>PocketArena — Pokémon Battle Simulator</title><link rel="stylesheet" href="style.css">
+</head><body><main id="app">
+<header class="site-header"><div><h1>PocketArena</h1><p class="tagline">A lightweight web Pokémon battle simulator — desktop, mobile and controller friendly.</p></div><p id="controller-status" class="controller-status" role="status" aria-live="polite">Controller: not connected</p></header>
+<p id="battle-status" class="battle-status" role="status" aria-live="polite">Turn 1 — choose a move.</p>
+<section class="battle-area" aria-label="Battle">
+<article class="combatant opponent" aria-label="Opponent Pokémon"><div class="sprite" aria-hidden="true">🛡️</div><div class="info"><h2 class="name" id="op-name">Blastoise</h2><p class="hp">HP: <span id="op-hp">130</span>/<span id="op-maxhp">130</span></p><progress id="op-hpbar" value="130" max="130" aria-label="Blastoise HP"></progress></div></article>
+<section class="log-panel" aria-label="Battle log"><h2>Battle log</h2><div class="log" id="log" aria-live="polite" aria-relevant="additions" aria-atomic="false"></div></section>
+<article class="combatant player" aria-label="Your Pokémon"><div class="sprite" aria-hidden="true">🔥</div><div class="info"><h2 class="name" id="pl-name">Charizard</h2><p class="hp">HP: <span id="pl-hp">120</span>/<span id="pl-maxhp">120</span></p><progress id="pl-hpbar" value="120" max="120" aria-label="Charizard HP"></progress></div></article>
+</section>
+<section class="controls" aria-label="Battle controls"><div class="move-panel"><h2>Choose a move</h2><div class="moves" id="moves" role="group" aria-label="Available moves"></div></div><div class="side-controls"><button id="btn-reset" class="btn" type="button">Reset battle</button><aside class="help" aria-label="Control instructions"><h2>Controls</h2><ul><li>Tap or click a move to use it.</li><li>Keyboard: Tab to a move, use arrow keys to select, Enter or Space to use.</li><li>Controller: D-pad Up/Down to select; A to confirm. B is not mapped.</li></ul></aside></div></section>
+<footer><small>Pokémon is a trademark of Nintendo, Game Freak and The Pokémon Company. This fan-made prototype is unofficial and educational.</small></footer>
+</main><script type="module" src="app.js"></script></body></html>
