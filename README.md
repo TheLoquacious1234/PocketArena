@@ -1,46 +1,48 @@
 # PocketArena — Pokémon Battle Simulator
 
-**Project name:** PocketArena — Pokémon Battle Simulator
-**Description:** A lightweight, mobile-first web-based Pokémon battle simulator with keyboard and controller accessibility. Designed for educational and fan-made use; not an official product.
+PocketArena is a small fan-made browser battle prototype built with HTML, CSS and JavaScript modules. It demonstrates a one-on-one Charizard-versus-Blastoise battle; it is not a complete or generation-accurate Pokémon simulator.
 
 ## Features
-- Mobile and desktop friendly responsive layout.
-- Controller support via the HTML5 Gamepad API (D-pad to select, A to confirm).
-- Keyboard navigation (arrow keys + Enter/Space).
-- Accessible UI: ARIA attributes, focus management, readable contrast and large interactive controls.
-- Simple turn-based battle system with sample Pokémon (Charizard vs Blastoise) and four moves each.
-- Easy to extend — add more Pokémon, moves, or mechanics in `app.js`.
+- Responsive desktop/mobile interface and mouse, keyboard and HTML5 Gamepad API input.
+- Independent player/CPU move selection and Speed-based turn order.
+- Persistent win/loss states and safe rematches.
+- Move PP, type/category/accuracy, Physical/Special stats, STAB and a limited type chart.
+- Stat-stage and healing effects; CPU move-scoring heuristic.
+- Battle engine separated from DOM code, with Node.js unit tests.
+- Accessibility foundations: labelled HP bars, live status announcements, focus styles and reduced-motion support.
 
-## Files
-- `index.html` — main app HTML.
-- `style.css` — responsive & accessible styles.
-- `app.js` — battle engine + controller & keyboard support.
-- `README.md` — this file.
-- `LICENSE` — MIT license.
+## Run
+JavaScript ES modules require a local HTTP server. From this folder run:
 
-## Getting started (development)
-1. Clone or download this repository.
-2. Open `index.html` in a browser (no server required for basic usage).
-3. For local development with live reload, serve with any static server (e.g., `npx serve` or `python -m http.server 8000`).
+```bash
+python -m http.server 8000
+```
 
-## Controller mapping (common)
-- D-pad Up / Down: Move selection between move buttons.
-- A (button 0): Confirm / use selected move.
-- B (button 1): Cancel / not used by default.
-- Start/Options: Not mapped by default.
+Then open http://localhost:8000.
 
-Note: Different gamepads may map buttons differently — browsers expose the mapping. If a controller doesn't work, try a different USB/Bluetooth controller or check your browser's gamepad mapping support.
+## Test
+Node.js 20 or later is recommended:
 
-## Extending the simulator
-- Add new Pokémon by editing the templates in `app.js`.
-- Implement status effects, types, and a full damage formula to get closer to official mechanics.
-- Store teams and implement switching, items, and more robust AI.
+```bash
+npm run check
+npm test
+```
 
-## Legal / Trademark notice
-This project is fan-made and for educational purposes. The term "Pokémon" and character names are trademarks of Nintendo / Game Freak / The Pokémon Company. No infringement intended. Remove official names if you plan to publish widely to avoid trademark issues.
+## Controls
+- Mouse/touch: select a move.
+- Keyboard: Tab to a move; arrow keys change selection; Enter or Space activates it.
+- Gamepad: D-pad Up/Down selects; button 0 (commonly A) confirms. B is not mapped.
 
-## Contributing
-PRs welcome — keep changes small and focused. Please follow standard GitHub PR etiquette.
+## Project structure
+- `index.html`: page structure and accessible controls.
+- `style.css`: responsive styles and focus/reduced-motion support.
+- `app.js`: rendering, turn sequencing and input handling.
+- `battle.js`: battle data and rules.
+- `tests/battle.test.js`: automated battle-engine tests.
+- `.github/workflows/ci.yml`: CI syntax and test checks.
+- `CHANGELOG.md`: release history.
 
-## License
-This project is licensed under the MIT License — see the `LICENSE` file.
+## Limitations
+The type chart only covers matchups needed by the sample roster/moves. Status ailments, switching, items, critical hits, full turn priority, teams and full generation rules are not implemented. Browser/device, physical controller and screen-reader QA remain recommended.
+
+Pokémon is a trademark of Nintendo, Game Freak and The Pokémon Company. This unofficial fan-made project is for educational purposes.

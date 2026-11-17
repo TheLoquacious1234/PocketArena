@@ -1,0 +1,11 @@
+{
+  "name": "pocketarena",
+  "version": "1.1.0",
+  "private": true,
+  "type": "module",
+  "description": "A lightweight browser-based Pokémon battle prototype.",
+  "scripts": {
+    "check": "node --check app.js && node --check battle.js",
+    "test": "node --test"
+  }
+}
