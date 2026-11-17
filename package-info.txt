@@ -1,1 +1,3 @@
-Generated project: PocketArena-Pokemon-Battle-Simulator\nCreated by ChatGPT on 2026-02-09\nContains a small web-based battle simulator (index.html, style.css, app.js), README and LICENSE.\n
+PocketArena 1.1.0 — patched project
+Updated 2026-11-17 based on the repository functionality and improvement review.
+Contains a modular browser battle prototype, battle-engine tests, README, MIT license and GitHub Actions checks.
